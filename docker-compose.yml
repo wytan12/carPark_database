@@ -1,0 +1,32 @@
+services:
+  carpark:
+    build:
+      context: .
+    container_name: carpark
+    ports:
+      - "8000:8000"
+    command: bash -c "python main.py --uvicorn TRUE --port 8000 --host 0.0.0.0"
+    depends_on:
+      - postgres_carpark
+    restart: always
+    volumes:
+      - /home/ubuntu/carPark_db:/carPark_db
+#    volumes:
+#      - /home/ubuntu/tpc_backend:/tpc_backend
+
+  postgres_carpark:
+    image: postgres
+    container_name: postgres_carpark
+    ports:
+      - "5555:5432"
+    environment:
+      - POSTGRES_DB=carpark
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_NAME=carpark
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgres_carpark/data
+
+volumes:
+  pgdata:
