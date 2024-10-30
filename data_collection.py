@@ -11,9 +11,12 @@ from selenium.webdriver.chrome.service import Service
 
 import os
 import django
+from dotenv import load_dotenv
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'carPark_db.settings')
 django.setup()
+
+load_dotenv()
 
 from carPark.models import CarParkAvailability, CarParkInfo
 
@@ -80,7 +83,7 @@ def scrape_data():
     return {'status': 'successful'}
 
 def pull_data():
-    api_key = '9Zr4XojjSl+tiRQzEPlruw=='
+    api_key = os.getenv("LTA_API_KEY")
     url = 'http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2'
 
     headers = {

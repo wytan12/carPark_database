@@ -9,8 +9,8 @@ services:
     depends_on:
       - postgres_carpark
     restart: always
-    volumes:
-      - /home/ubuntu/carPark_db:/carPark_db
+#    volumes:
+#      - /home/ubuntu/carPark_db:/carPark_db
 #    volumes:
 #      - /home/ubuntu/tpc_backend:/tpc_backend
 

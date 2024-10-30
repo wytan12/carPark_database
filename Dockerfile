@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.10
 WORKDIR /carPark_db
 COPY . /carPark_db
 RUN apt-get update

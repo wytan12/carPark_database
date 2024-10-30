@@ -87,9 +87,9 @@ DATABASES = {
         'NAME': os.environ.get("DB_NAME"),
         'USER': os.environ.get("DB_USER"),
         'PASSWORD': os.environ.get("DB_PASSWORD"),
-        'HOST': os.environ.get("DB_HOST"),
+        # 'HOST': os.environ.get("DB_HOST"),
         #'HOST': 'host.docker.internal',  # connect local host db from container
-        #'HOST': "postgres_carpark",  # to connect same container database
+        'HOST': "postgres_carpark",  # to connect same container database
         'PORT': os.environ.get("DB_PORT"),
     },
 
